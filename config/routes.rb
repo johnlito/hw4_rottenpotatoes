@@ -14,6 +14,7 @@ Rottenpotatoes::Application.routes.draw do
   #   resources :products
   resources :movies
 
+  match 'movies/:id/same_director' => 'movies#same_director', :as => :same_director, :via => [:get, :post]
   # Sample resource route with options:
   #   resources :products do
   #     member do
@@ -49,7 +50,8 @@ Rottenpotatoes::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+   root :to => redirect('/movies')
+#   match('coverage') => redirect('/coverage/index.html')
 
   # See how all your routes lay out with "rake routes"
 
